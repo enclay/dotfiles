@@ -2,7 +2,7 @@ call plug#begin('~/.config/nvim/plugins')
     
 Plug 'preservim/nerdtree'
 Plug 'gruvbox-community/gruvbox'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
