@@ -4,5 +4,11 @@
     "eslint.packageManager": "yarn",
     "eslint.nodePath": ".yarn/sdks",
     "workspace.workspaceFolderCheckCwd": false,
-    "tsserver.tsdk": ".yarn/sdks/typescript/lib"
+    "tsserver.tsdk": ".yarn/sdks/typescript/lib",
+    "haskell": {
+	    "command": "haskell-language-server-wrapper",
+	    "args": ["--lsp"],
+	    "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+	    "filetypes": ["haskell", "lhaskell"]
+    }
 }
