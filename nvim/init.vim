@@ -59,11 +59,11 @@ set splitbelow
 set cursorline
 
 " Colorscheme
-colorscheme onedark
+"colorscheme onedark
 filetype plugin indent on
 hi Normal guibg=NONE ctermbg=NONE
 highlight VertSplit cterm=NONE
-"colorscheme nord
+colorscheme nord
 "colorscheme gruvbox
 "set bg=light
 
@@ -76,7 +76,6 @@ map <silent> <C-g> :CocCommand clangd.switchSourceHeader<CR>
 inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>" 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
-
 "Go-To-Definition
 nmap gd <Plug>(coc-definition)
 
@@ -85,3 +84,9 @@ nmap ff <cmd>Telescope find_files<CR>
 nmap fg <cmd>Telescope live_grep<CR>
 nmap fb <cmd>Telescope buffers<CR>
 nmap fh <cmd>Telescope help_tags<CR>
+
+" Disabling all arrow keys
+nnoremap <Up> <nop>
+nnoremap <Down> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
