@@ -13,7 +13,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'andweeb/presence.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'dstein64/nvim-scrollview', { 'branch': 'main' }
 
 call plug#end()
@@ -41,13 +43,17 @@ let NERDTreeWinSize=23
 let NERDTreeHighlightCursorline=0
 let NERDTreeShowHidden=1
 
+
 " Basic settings
 set termguicolors
 set visualbell
 set t_vb=v
+
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set softtabstop=0
+set noexpandtab
+
 set encoding=utf8
 set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
 set autoindent
@@ -80,9 +86,12 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 nmap gd <Plug>(coc-definition)
 
 " Telescope
+autocmd VimEnter * lua require('telescope').load_extension('file_browser')
+
+nmap fb <cmd>Telescope file_browser<CR>
 nmap ff <cmd>Telescope find_files<CR>
 nmap fg <cmd>Telescope live_grep<CR>
-nmap fb <cmd>Telescope buffers<CR>
+nmap bb <cmd>Telescope buffers<CR>
 nmap fh <cmd>Telescope help_tags<CR>
 
 " Disabling all arrow keys
@@ -90,3 +99,8 @@ nnoremap <Up> <nop>
 nnoremap <Down> <nop>
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
+
+" Indentation
+autocmd BufWritePre * :ret!
+
+nnoremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
