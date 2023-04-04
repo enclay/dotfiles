@@ -35,13 +35,13 @@ let g:scrollview_on_startup = 1
 let g:coc_global_extensions = [ 'coc-pairs', 'coc-cmake' ]
 
 " NerdTree
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDTreeDirArrowExpandable = '▸'
-let NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeWinSize=23
-let NERDTreeHighlightCursorline=0
-let NERDTreeShowHidden=1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeWinSize=23
+let g:NERDTreeHighlightCursorline=0
+let g:NERDTreeShowHidden=1
 
 
 " Basic settings
@@ -65,18 +65,18 @@ set splitbelow
 set cursorline
 
 " Colorscheme
-"colorscheme onedark
+colorscheme onedark
 filetype plugin indent on
 hi Normal guibg=NONE ctermbg=NONE
 highlight VertSplit cterm=NONE
-colorscheme nord
+"colorscheme nord
 "colorscheme gruvbox
 "set bg=light
 
 " NerdTree
-map <silent> <C-f> :NERDTreeFocus <CR>
-map <silent> <C-c> :NERDTreeClose <CR>
-map <silent> <C-g> :CocCommand clangd.switchSourceHeader<CR>
+"map <silent> <C-f> :NERDTreeFocus <CR>
+"map <silent> <C-c> :NERDTreeClose <CR>
+"map <silent> <C-g> :CocCommand clangd.switchSourceHeader<CR>
 
 " Use <tab> for autocompletion
 inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>" 
@@ -88,11 +88,14 @@ nmap gd <Plug>(coc-definition)
 " Telescope
 autocmd VimEnter * lua require('telescope').load_extension('file_browser')
 
-nmap fb <cmd>Telescope file_browser<CR>
-nmap ff <cmd>Telescope find_files<CR>
-nmap fg <cmd>Telescope live_grep<CR>
-nmap bb <cmd>Telescope buffers<CR>
-nmap fh <cmd>Telescope help_tags<CR>
+nmap ff <cmd> :Telescope find_files theme=dropdown previewer=false layout_config={height=200,width=200} <CR>
+nmap fb <cmd> :Telescope file_browser theme=dropdown previewer=false layout_config={height=200,width=200} <CR>
+
+"nmap fb <cmd>Telescope file_browser<CR>
+"nmap ff <cmd>Telescope find_files<CR>
+"nmap fg <cmd>Telescope live_grep<CR>
+"nmap bb <cmd>Telescope buffers<CR>
+"nmap fh <cmd>Telescope help_tags<CR>
 
 " Disabling all arrow keys
 nnoremap <Up> <nop>
@@ -104,3 +107,4 @@ nnoremap <Right> <nop>
 autocmd BufWritePre * :ret!
 
 nnoremap <F2> :<C-U>setlocal lcs=tab:>-,trail:-,eol:$ list! list? <CR>
+
