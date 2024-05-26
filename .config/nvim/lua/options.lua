@@ -23,6 +23,8 @@ vim.opt.number = true
 vim.opt.splitbelow = true
 vim.opt.cursorline = true
 
+vim.opt.clipboard:append("unnamedplus")
+
 -- ScrollBars
 vim.g.scrollview_excluded_filetypes = {'nerdtree'}
 vim.g.scrollview_winblend = 70
@@ -42,11 +44,7 @@ vim.g.NERDTreeHighlightCursorline=0
 vim.g.NERDTreeShowHidden=1
 
 -- Themes
-vim.g.nord_cursor_line_number_background = 1
-vim.g.gruvbox_contrast_dark = 'soft'
 vim.g.material_style = "darker"
 
 vim.cmd("filetype plugin indent on")
 vim.cmd("colorscheme material")
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-vim.cmd("highlight VertSplit cterm=NONE")
