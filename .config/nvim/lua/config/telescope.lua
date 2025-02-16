@@ -23,8 +23,8 @@ local ff_config = {
 }
 
 local lg_config = {
-	initial_mode = 'insert',
-	theme = 'ivy'
+	initial_mode = "insert",
+	theme = "ivy"
 }
 
 telescope.setup {
@@ -32,7 +32,7 @@ telescope.setup {
   extensions = { file_browser = fb_config },
   pickers = { find_files = ff_config, live_grep = lg_config }
 }
-telescope.load_extension('file_browser')
+telescope.load_extension("file_browser")
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()

@@ -1,14 +1,26 @@
-require("mason").setup()
-require("mason-lspconfig").setup({
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
+local lspconfig = require("lspconfig")
+
+mason.setup()
+mason_lspconfig.setup({
   ensure_installed = { "pyright", "ts_ls", "lua_ls" }
 })
 
-local lspconfig = require("lspconfig")
+lspconfig.pyright.setup({
+  settings = {
+    python = {
+      analysis = {
+        typeCheckingMode = "off",  -- Turns off strict type checking
+        diagnosticMode = "workspace",  -- Prevents excessive linting
+        useLibraryCodeForTypes = true,  -- Avoids missing type definitions
+      },
+    },
+  },
+})
 
-lspconfig.pyright.setup {}
-lspconfig.ts_ls.setup {}
+lspconfig.ts_ls.setup({})
 
--- Special settings for Lua LSP
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -18,7 +30,6 @@ lspconfig.lua_ls.setup({
   },
 })
 
--- Special settings for Rust LSP
 lspconfig.rust_analyzer.setup({
   settings = {
     ["rust-analyzer"] = {
