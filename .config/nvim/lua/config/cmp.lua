@@ -14,9 +14,11 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(), -- Manually trigger completion
   }),
   sources = cmp.config.sources({
+	{ name = "copilot" },
     { name = "nvim_lsp" },  -- LSP completion
     { name = "luasnip" },   -- Snippet completion
     { name = "buffer" },    -- Text from current buffer
     { name = "path" },      -- File path completion
+
   })
 })

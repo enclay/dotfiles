@@ -7,13 +7,15 @@ mason_lspconfig.setup({
   ensure_installed = { "pyright", "ts_ls", "lua_ls" }
 })
 
+
 lspconfig.pyright.setup({
   settings = {
     python = {
       analysis = {
         typeCheckingMode = "off",  -- Turns off strict type checking
-        diagnosticMode = "workspace",  -- Prevents excessive linting
-        useLibraryCodeForTypes = true,  -- Avoids missing type definitions
+ --       useLibraryCodeForTypes = true,  -- Avoids missing type definitions
+ --   	reportUnusedVariable = "none",
+ --       reportUnusedFunction = "none",
       },
     },
   },
@@ -21,6 +23,7 @@ lspconfig.pyright.setup({
 
 lspconfig.ts_ls.setup({})
 
+-- Special settings for Lua LSP
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -30,6 +33,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
+-- Special settings for Rust LSP
 lspconfig.rust_analyzer.setup({
   settings = {
     ["rust-analyzer"] = {
