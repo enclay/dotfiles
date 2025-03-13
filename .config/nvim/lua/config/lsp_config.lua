@@ -4,18 +4,14 @@ local lspconfig = require("lspconfig")
 
 mason.setup()
 mason_lspconfig.setup({
-  ensure_installed = { "pyright", "ts_ls", "lua_ls" }
+  ensure_installed = { "pyright", "ts_ls", "lua_ls"}
 })
-
 
 lspconfig.pyright.setup({
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "off",  -- Turns off strict type checking
- --       useLibraryCodeForTypes = true,  -- Avoids missing type definitions
- --   	reportUnusedVariable = "none",
- --       reportUnusedFunction = "none",
+		  typeCheckingMode = "off"
       },
     },
   },
@@ -45,5 +41,4 @@ lspconfig.rust_analyzer.setup({
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<C-g>", "<cmd>ClangdSwitchSourceHeader<CR>", opts)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)

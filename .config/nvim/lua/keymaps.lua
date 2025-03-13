@@ -10,4 +10,3 @@ vim.keymap.set("i", "<Up>", "<nop>", opts)
 vim.keymap.set("i", "<Down>", "<nop>", opts)
 vim.keymap.set("i", "<Left>", "<nop>", opts)
 vim.keymap.set("i", "<Right>", "<nop>", opts)
-

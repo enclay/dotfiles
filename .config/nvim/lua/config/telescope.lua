@@ -27,12 +27,20 @@ local lg_config = {
 	theme = "ivy"
 }
 
+local bb_config = {
+	initial_mode = "insert",
+	theme = "ivy",
+    sort_mru = true,
+    ignore_current_buffer = true
+}
+
 telescope.setup {
-  defaults = themes.get_dropdown {},
+  defaults = themes.get_dropdown({}),
   extensions = { file_browser = fb_config },
-  pickers = { find_files = ff_config, live_grep = lg_config }
+  pickers = { find_files = ff_config, live_grep = lg_config, buffers = bb_config }
 }
 telescope.load_extension("file_browser")
+telescope.load_extension("frecency")
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
@@ -43,7 +51,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end
 })
 
-
 vim.keymap.set("n", "fb", telescope.extensions.file_browser.file_browser)
 vim.keymap.set("n", "ff", builtin.find_files)
 vim.keymap.set("n", "fg", builtin.live_grep)
+vim.keymap.set("n", "fd", builtin.buffers)
