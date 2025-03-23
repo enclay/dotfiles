@@ -19,6 +19,7 @@ vim.opt.cursorline = true
 vim.opt.clipboard:append("unnamedplus")
 
 -- Appearance
-vim.g.material_style = "darker"
-vim.cmd("colorscheme material")
+vim.cmd("colorscheme lackluster-hack")
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+vim.cmd("hi SignColumn guibg=NONE")
+vim.cmd("hi FoldColumn guibg=NONE")

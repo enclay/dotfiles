@@ -2,7 +2,7 @@ local lazy = require("lazy")
 
 lazy.setup({
 -- Themes
-  "marko-cerovac/material.nvim",
+  "slugbyte/lackluster.nvim",
 
 -- Highlighting
   "nvim-treesitter/nvim-treesitter",
